@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pollen Profiling: Automated Classification of Pollen Grains</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1 class="project-title">Pollen Profiling: Automated Classification of Pollen Grains</h1>
+    <p class="tagline">Revolutionizing pollen analysis with machine learning.</p>
+  </header>
+  <main>
+    <section class="hero" aria-label="Intro and start prediction">
+      <a href="{{ url_for('prediction') }}" class="cta-btn">Start Prediction</a>
+    </section>
+    <section class="about">
+      <h2>About the Project</h2>
+      <p>
+        Pollen Profiling is an innovative platform that harnesses the power of machine learning to automate the classification of pollen grains. Designed for researchers, environmentalists, and agricultural professionals, our tool streamlines the identification process, offering rapid and accurate results.
+      </p>
+      <p>
+        By integrating advanced image analysis techniques, Pollen Profiling aids in biodiversity studies, allergy research, and crop management. Our mission is to provide a user-friendly solution that enhances the understanding of plant ecosystems and supports informed decision-making in various scientific and industrial applications.
+      </p>
+    </section>
+  </main>
+  <footer>
+    <span>&copy; 2025 Pollen Profiling. All rights reserved.</span>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pollen Profiling - Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1 class="project-title">Pollen Profiling: Automated Classification of Pollen Grains</h1>
+    <p class="tagline">Revolutionizing pollen analysis with machine learning.</p>
+  </header>
+  <main>
+    <section class="prediction">
+      <h2>Upload a Pollen Image</h2>
+      <form method="POST" enctype="multipart/form-data">
+        <label for="file-upload" class="file-label">Choose an image (JPG, PNG):
+          <input type="file" id="file-upload" name="file" accept=".jpg,.jpeg,.png" required aria-label="Upload pollen image" />
+        </label>
+        <button type="submit" class="cta-btn">Predict</button>
+      </form>
+      {% if prediction %}
+        <div class="output" aria-live="polite">
+          <img src="{{ url_for('uploaded_file', filename=prediction.img_file) }}" alt="Uploaded pollen grain preview" />
+          <p><strong>Predicted Pollen Type:</strong> <span>{{ prediction.predicted_type }}</span></p>
+          <p><strong>Confidence Score:</strong> <span>{{ (prediction.confidence * 100) | round(2) }}%</span></p>
+        </div>
+      {% elif error %}
+        <div class="error-msg" role="alert">{{ error }}</div>
+      {% endif %}
+      <a href="{{ url_for('home') }}" class="secondary-btn">Back to Home</a>
+    </section>
+  </main>
+  <footer>
+    <span>&copy; 2025 Pollen Profiling. All rights reserved.</span>
+  </footer>
+</body>
+</html>
